@@ -9,13 +9,15 @@
         optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 
         const optimizelyInstance = optimizelySdk.createInstance({
-          sdkKey: '9LCprAQyd1bs1BBXZ3nVji',
+          sdkKey: '<PASTE YOUR SDK KEY HERE>',
           eventBatchSize: 20,
           eventFlushInterval: 5000, // ms
         });
 
         const result = await optimizelyInstance.onReady();
         console.log(`Optimizely ready: ${JSON.stringify(result)}`);
+
+        const user = `user${Date.now()}`;
 
         // Generate impression events:
 
@@ -33,8 +35,6 @@
         // Close the instance, which immediately flushes the current batch of events
         // optimizelyInstance.close();
       }
-
-      const user = `user${Date.now()}`;
 
       main();
     </script>
