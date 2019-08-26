@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/@optimizely/optimizely-sdk@3.3.0-beta/dist/optimizely.browser.umd.js"></script>
+  </head>
+  <body>
+    <script>
+      async function main() {
+        optimizelySdk.setLogLevel('debug');
+        optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
+
+        const optimizelyInstance = optimizelySdk.createInstance({
+          sdkKey: '9LCprAQyd1bs1BBXZ3nVji',
+          eventBatchSize: 20,
+          eventFlushInterval: 5000, // ms
+        });
+
+        const result = await optimizelyInstance.onReady();
+        console.log(`Optimizely ready: ${JSON.stringify(result)}`);
+
+        // Generate impression events:
+
+        // From A/B test
+        // optimizelyInstance.activate('<PASTE YOUR EXPERIMENT KEY HERE>', user);
+
+        // From Feature test
+        // optimizelyInstance.isFeatureEnabled('<PASTE YOUR FEATURE KEY HERE>', user);
+
+
+        // Generate conversion events
+        // optimizelyInstance.track('<PASTE YOUR EVENT KEY HERE>', user);
+
+
+        // Close the instance, which immediately flushes the current batch of events
+        // optimizelyInstance.close();
+      }
+
+      const user = `user${Date.now()}`;
+
+      main();
+    </script>
+  </body>
+</html>
