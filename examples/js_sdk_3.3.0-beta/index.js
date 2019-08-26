@@ -5,7 +5,7 @@ async function main() {
   optimizelySdk.setLogger(optimizelySdk.logging.createLogger());
 
   const optimizelyInstance = optimizelySdk.createInstance({
-    sdkKey: '9LCprAQyd1bs1BBXZ3nVji',
+    sdkKey: '<PASTE YOUR SDK KEY HERE>',
     eventBatchSize: 20,
     eventFlushInterval: 5000, // ms
   });
