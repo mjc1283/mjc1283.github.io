@@ -12,6 +12,18 @@ async function main() {
 
   const result = await optimizelyInstance.onReady({ timeout: 5000 });
   console.log(`Optimizely ready: ${JSON.stringify(result)}`);
+  //
+  // Add a log event notification listener
+  /*
+  optimizelyInstance.notificationCenter.addNotificationListener(
+    optimizelySdk.enums.NOTIFICATION_TYPES.LOG_EVENT,
+    (event) => {
+      console.log('Got log event notification: ');
+      console.log(JSON.stringify(event, null, 2));
+    }
+  );
+  */
+
   const user = `user${Date.now()}`;
 
   // Generate impression events:
